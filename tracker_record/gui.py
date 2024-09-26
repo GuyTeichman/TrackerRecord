@@ -23,7 +23,8 @@ class CameraFeed(QtOpenGLWidgets.QOpenGLWidget):
         self.current_writer = None
         self.duration = -1
         self.elapsed = -1
-        self.image = None
+        self.image = QtGui.QImage(1,1,QtGui.QImage.Format.Format_Grayscale8)
+        self.image.fill(QtGui.QColor(0, 0, 0))
 
     def start_recording(self, save_path: Path, duration_sec: int):
         self.current_writer = self.recorder.get_writer(save_path, self.frame_rate)
