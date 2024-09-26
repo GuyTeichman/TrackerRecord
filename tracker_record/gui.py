@@ -6,7 +6,7 @@ import numpy as np
 from PyQt6 import QtWidgets, QtCore, QtGui, QtOpenGLWidgets
 from PyQt6.QtWidgets import QMainWindow, QWidget
 
-from tracker_record import record, gui_widgets
+from tracker_record import record, gui_widgets, __version__
 
 MAX_FPS = 20
 
@@ -199,3 +199,15 @@ class MainWindow(QMainWindow):
 
         self.camera_feed.stop_recording()
         print("Stop recording. ")
+
+
+def splash_screen():
+    img_path = str(Path(__file__).parent.joinpath('splash.png'))
+    splash_pixmap = QtGui.QPixmap(img_path)
+    splash_font = QtGui.QFont('Calibri', 16)
+    splash = QtWidgets.QSplashScreen(splash_pixmap)
+    splash.setFont(splash_font)
+    splash.showMessage(f"<i>TrackerRecord</i> version {__version__}",
+                       QtCore.Qt.AlignmentFlag.AlignBottom | QtCore.Qt.AlignmentFlag.AlignHCenter)
+    splash.show()
+    return splash

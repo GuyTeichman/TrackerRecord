@@ -10,6 +10,7 @@ def run():
     app.setOrganizationName("GuyTeichman")
     app.setOrganizationDomain("github.com/GuyTeichman")
     app.setApplicationName("Tracker Record")
+    splash = gui.splash_screen()
     window = gui.MainWindow()
     app.setWindowIcon(window.style().standardIcon(gui.QtWidgets.QStyle.StandardPixmap.SP_MediaPlay))
     # close built-in splash screen in frozen app version of DoubleBlind
@@ -17,6 +18,7 @@ def run():
         import pyi_splash
         pyi_splash.close()
     window.show()
+    splash.finish(window)
     sys.exit(app.exec())
 
 
