@@ -1,0 +1,61 @@
+[project]
+name = "tracker_record"  # Required
+version = "1.0.0"  # Required
+description = "Live feed and recording from worm tracker camera"
+readme = "README.rst" # Optional
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = ["imaging", "tracker", "camera", "genicam"]
+authors = [{ name = "Guy Teichman", email = "guyteichman@gmail.com" }]
+maintainers = [{ name = "Guy Teichman", email = "guyteichman@gmail.com" }]
+
+classifiers = ["Development Status :: 5 - Production/Stable",
+    # Indicate who your project is intended for
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+# This field lists other packages that your project depends on to run.
+# Any package you put here will be installed by pip when your project is
+# installed, so they must be valid existing projects.
+#
+# For an analysis of this field vs pip's requirements files see:
+# https://packaging.python.org/discussions/install-requires-vs-requirements/
+dependencies = [
+    "PyQt6",
+    "harvesters",
+    "numpy",
+    "opencv-python",
+    "tqdm"
+]
+
+# List URLs that are relevant to your project
+#
+# This field corresponds to the "Project-URL" and "Home-Page" metadata fields:
+# https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
+# https://packaging.python.org/specifications/core-metadata/#home-page-optional
+#
+# Examples listed include a pattern for specifying where the package tracks
+# issues, where the source is hosted, where to say thanks to the package
+# maintainers, and where to support the project financially. The key is
+# what's used to render the link text on PyPI.
+[project.urls]  # Optional
+"Homepage" = "https://github.com/guyteichman/trackerRecord"
+"Bug Reports" = "https://github.com/guyteichman/trackerRecord/issues"
+
+# The following would provide a command line executable called `sample`
+# which executes the function `main` from this package when invoked.
+[project.scripts]  # Optional
+doubleblind-gui = "tracker_record.main:run"
+
+[build-system]
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["tracker_record*"]
+exclude = ["docs*", "tests*", "packaging*"]
