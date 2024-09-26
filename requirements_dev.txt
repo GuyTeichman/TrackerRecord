@@ -7,3 +7,4 @@ pytest-qt
 pytest-xvfb
 rst-to-myst
 pytest-randomly
+sphinx
