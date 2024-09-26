@@ -20,7 +20,6 @@ a = Analysis(
     binaries=binaries,
     datas=datas,
     hiddenimports=hiddenimports,
-    hookspath=[hook_path],
     runtime_hooks=[],
     excludes=[],
     win_no_prefer_redirects=False,
