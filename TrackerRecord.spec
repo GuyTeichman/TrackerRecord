@@ -7,11 +7,7 @@ from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 datas = collect_data_files('tracker_record')
 binaries = []
 hiddenimports = []
-
 hiddenimports += collect_submodules('numpy')
-
-
-
 block_cipher = None
 
 a = Analysis(
@@ -33,7 +29,7 @@ if is_darwin:
     exe_contents = (pyz, a.scripts, a.binaries, a.zipfiles, a.datas, [],)
     exe_kwargs = dict(runtime_tmpdir=None, icon='tracker_record/icon.icns')
 else:
-    splash = Splash('tracker_record/splash.png',
+    splash = Splash('tracker_record/assets/splash.png',
                     binaries=a.binaries,
                     datas=a.datas,
                     text_pos=(175, 510),
@@ -42,7 +38,7 @@ else:
                     text_color='black',
                     always_on_top=False)
     exe_contents = (pyz, splash, a.scripts, [],)
-    exe_kwargs = dict(exclude_binaries=True, icon='tracker_record/icon.ico')
+    exe_kwargs = dict(exclude_binaries=True, icon='tracker_record/assets/icon.ico')
 
 exe = EXE(
     *exe_contents,
