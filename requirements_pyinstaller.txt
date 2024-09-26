@@ -1,2 +1,3 @@
 pyinstaller
 pyinstaller-hooks-contrib
+Pillow
